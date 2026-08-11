@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malaysia Pocket — Know Your Rights. Beat the Clock.</title>
-  <meta name="description" content="Emergency numbers, legal deadlines, step-by-step guides, and a complaint letter you can send today — in plain language, not legalese." />
-  <meta property="og:title" content="Malaysia Pocket — Know Your Rights. Beat the Clock." />
-  <meta property="og:description" content="Situations, deadlines, rights, guides, complaint channels — all in one pocket." />
+  <title>Malaysia Pocket — Emergency, Safety &amp; Rights</title>
+  <meta name="description" content="One-tap emergency services, know your rights, step-by-step daily guides, and deadline tracking — your ultimate daily companion in Malaysia." />
+  <meta property="og:title" content="Malaysia Pocket — Emergency, Safety &amp; Rights" />
+  <meta property="og:description" content="Stay informed, stay safe, and know your rights with Malaysia Pocket." />
   <meta property="og:image" content="https://zhiyao92.github.io/malaysia-pocket-landing/app-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="app-icon.png" />
@@ -14,470 +14,391 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:   #0A0F0D;
-      --ink:     #111714;
-      --surface: #161C19;
-      --card:    #1D2620;
-      --border:  rgba(255,255,255,0.07);
-      --green:   #1F6F5C;
-      --glow:    #2ECC9A;
-      --dim:     #27332E;
-      --urgent:  #E05A5A;
-      --gold:    #C99B30;
-      --white:   #FFFFFF;
-      --off:     #F0F4F2;
-      --muted:   #7A9088;
-      --soft:    #445048;
+      --black:  #09100E;
+      --ink:    #101815;
+      --surf:   #151E1A;
+      --card:   #1B2520;
+      --border: rgba(255,255,255,0.07);
+      --green:  #1F6F5C;
+      --glow:   #28C88A;
+      --dim:    #263330;
+      --urgent: #E05555;
+      --gold:   #C99B30;
+      --white:  #FFFFFF;
+      --muted:  #6E8880;
+      --soft:   #3D504A;
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: var(--black); color: var(--white); line-height: 1.5; overflow-x: hidden; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─────────────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px; height: 60px;
-      background: rgba(10,15,13,0.9);
-      backdrop-filter: blur(16px);
+      padding: 0 48px; height: 58px;
+      background: rgba(9,16,14,0.88); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
-    .nav-logo span { font-size: 0.9rem; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-link:hover { color: var(--white); }
-    .nav-cta {
-      font-size: 0.8rem; font-weight: 700;
-      background: var(--glow); color: var(--black);
-      padding: 8px 18px; border-radius: 8px; text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand span { font-size: 0.9rem; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+    .nav-r { display: flex; align-items: center; gap: 24px; }
+    .nav-lnk { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-lnk:hover { color: var(--white); }
+    .nav-dl { font-size: 0.8rem; font-weight: 700; background: var(--glow); color: var(--black); padding: 8px 20px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; }
+    .nav-dl:hover { opacity: 0.85; }
 
-    /* ─── HERO ────────────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 100px 60px 60px;
-      gap: 60px;
-      position: relative;
-      overflow: hidden;
+      padding: 120px 60px 80px;
+      display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+      position: relative; overflow: hidden;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(31,111,92,0.18) 0%, transparent 70%);
-      pointer-events: none;
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 40%, rgba(31,111,92,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(46,204,154,0.05) 0%, transparent 50%);
     }
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
 
-    .hero-left { position: relative; z-index: 1; }
-    .hero-flag {
+    .hero-rating {
       display: inline-flex; align-items: center; gap: 8px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 32px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 100px; padding: 7px 16px;
+      font-size: 0.75rem; color: var(--muted); margin-bottom: 28px;
     }
-    .hero-flag span { color: var(--white); }
+    .stars { color: #F5A623; letter-spacing: 1px; font-size: 0.8rem; }
+    .hero-rating strong { color: var(--white); }
 
     h1 {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -3px;
-      line-height: 0.97;
+      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+      font-weight: 800; letter-spacing: -3.5px; line-height: 0.96;
       color: var(--white);
     }
-    h1 .accent { color: var(--glow); }
-    h1 .dim-word { color: var(--muted); }
+    h1 .g { color: var(--glow); }
+    h1 .d { color: var(--muted); }
 
     .hero-sub {
-      margin-top: 28px;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 440px;
+      margin-top: 24px; font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 520px;
     }
+    .hero-sub strong { color: var(--white); font-weight: 600; }
 
-    .hero-cta-row {
-      margin-top: 40px;
-      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    .hero-pills { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 0.75rem; color: var(--muted); font-weight: 500;
     }
-    .btn-download {
+    .pill.red   { background: rgba(224,85,85,0.08);  border-color: rgba(224,85,85,0.2);  color: var(--urgent); }
+    .pill.green { background: rgba(40,200,138,0.08); border-color: rgba(40,200,138,0.2); color: var(--glow); }
+
+    .hero-ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-dl {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--glow); color: var(--black);
-      font-weight: 800; font-size: 0.95rem;
-      padding: 14px 26px; border-radius: 12px;
+      font-weight: 800; font-size: 1rem; padding: 15px 28px; border-radius: 14px;
       text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 0 48px rgba(40,200,138,0.18);
     }
-    .btn-download:hover { opacity: 0.88; transform: scale(1.02); }
-    .btn-ghost {
-      display: inline-flex; align-items: center;
-      color: var(--muted); font-size: 0.875rem; font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px solid var(--soft);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .btn-ghost:hover { color: var(--white); border-color: var(--white); }
+    .btn-dl:hover { opacity: 0.88; transform: scale(1.02); }
+    .btn-dl svg { width: 20px; height: 20px; }
+    .hero-note { font-size: 0.78rem; color: var(--soft); }
 
-    /* ─── HERO CLOCK ──────────────────────────────────────── */
-    .hero-right {
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: center; gap: 0;
+      overflow: hidden;
     }
-    .clock-widget {
+    .trust-item {
+      flex: 1; padding: 18px 24px; text-align: center;
+      border-right: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { font-size: 1rem; }
+    .trust-text { font-size: 0.78rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+    .trust-text strong { color: var(--white); }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots-section { padding: 80px 0; overflow: hidden; }
+    .screenshots-header { padding: 0 60px 40px; }
+    .section-eye { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 10px; }
+    .section-h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -1.5px; color: var(--white); line-height: 1.1; }
+    .section-h2 em { font-style: normal; color: var(--muted); }
+
+    .screenshots-scroll {
+      display: flex; gap: 16px; padding: 8px 60px 24px;
+      overflow-x: auto; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+    }
+    .screenshots-scroll:active { cursor: grabbing; }
+    .screenshots-scroll::-webkit-scrollbar { display: none; }
+
+    .phone-frame {
+      flex-shrink: 0;
+      width: 190px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 28px;
-      padding: 36px;
-      width: 100%; max-width: 420px;
-      box-shadow: 0 0 80px rgba(46,204,154,0.04);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
-    .clock-label {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 20px;
-    }
-    .clock-situation {
-      font-size: 1.25rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 8px;
-    }
-    .clock-started {
-      font-size: 0.78rem; color: var(--muted); margin-bottom: 28px;
-    }
-    .clock-ring {
-      width: 140px; height: 140px; margin: 0 auto 24px;
-      position: relative; display: flex; align-items: center; justify-content: center;
-    }
-    .clock-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
-    .ring-track { fill: none; stroke: var(--dim); stroke-width: 8; }
-    .ring-fill  { fill: none; stroke: var(--urgent); stroke-width: 8; stroke-linecap: round;
-                  stroke-dasharray: 377; stroke-dashoffset: 150;
-                  animation: ring-pulse 2s ease-in-out infinite alternate; }
-    @keyframes ring-pulse { to { stroke-dashoffset: 145; } }
-    .clock-center { position: relative; text-align: center; z-index: 1; }
-    .clock-days { font-size: 2.4rem; font-weight: 800; color: var(--urgent); letter-spacing: -2px; line-height: 1; }
-    .clock-days-label { font-size: 0.65rem; color: var(--muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-    .clock-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 0; border-top: 1px solid var(--border);
-    }
-    .clock-row-label { font-size: 0.8rem; color: var(--muted); }
-    .clock-row-val   { font-size: 0.8rem; color: var(--white); font-weight: 600; }
-    .clock-row-badge {
-      font-size: 0.65rem; font-weight: 700; padding: 3px 9px; border-radius: 5px;
-      background: rgba(224,90,90,0.15); color: var(--urgent);
-      border: 1px solid rgba(224,90,90,0.2);
-    }
-
-    /* ─── TICKER ──────────────────────────────────────────── */
-    .ticker {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--ink);
-      overflow: hidden; padding: 14px 0;
-      display: flex; gap: 0;
-    }
-    .ticker-track {
-      display: flex; gap: 40px; width: max-content;
-      animation: ticker-scroll 28s linear infinite;
-    }
-    @keyframes ticker-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .ticker-item {
-      display: flex; align-items: center; gap: 10px;
-      white-space: nowrap; font-size: 0.8rem; color: var(--muted); flex-shrink: 0;
-    }
-    .ticker-item .t-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--glow); opacity: 0.5; }
-    .ticker-item .t-deadline { color: var(--urgent); font-weight: 700; }
-    .ticker-item .t-name { color: var(--white); font-weight: 600; }
-
-    /* ─── NUMBERS BAR ─────────────────────────────────────── */
-    .numbers-bar {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: var(--border);
-    }
-    .num-cell {
-      background: var(--ink);
-      padding: 44px 48px;
-    }
-    .num-big { font-size: 3.8rem; font-weight: 800; letter-spacing: -3px; color: var(--white); line-height: 1; }
-    .num-big .plus { color: var(--glow); font-size: 2.5rem; vertical-align: top; margin-top: 4px; display: inline-block; }
-    .num-label { font-size: 0.78rem; color: var(--muted); margin-top: 8px; line-height: 1.5; }
-
-    /* ─── BENTO GRID ──────────────────────────────────────── */
-    .bento { padding: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-auto-rows: auto; gap: 12px; }
-    .bento-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      transition: border-color 0.25s, box-shadow 0.25s;
-      position: relative; overflow: hidden;
-    }
-    .bento-card:hover { border-color: rgba(46,204,154,0.2); box-shadow: 0 0 40px rgba(46,204,154,0.04); }
-    .bento-card.span2 { grid-column: span 2; }
-    .bento-card.span3 { grid-column: span 3; }
-    .bento-card.tall   { grid-row: span 2; }
-
-    .bento-eyebrow {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--glow); margin-bottom: 14px;
-    }
-    .bento-title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); margin-bottom: 10px; }
-    .bento-body  { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
-
-    /* Situations card */
-    .sit-list { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-    .sit-item {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 11px 14px;
-    }
-    .sit-name { font-size: 0.82rem; color: var(--white); font-weight: 600; }
-    .sit-deadline { font-size: 0.72rem; color: var(--urgent); font-weight: 700; }
-
-    /* Rights card */
-    .rights-tag-cloud { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .rights-tag {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 7px 14px;
-      font-size: 0.78rem; color: var(--muted); font-weight: 500;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-    .rights-tag:hover { background: rgba(46,204,154,0.08); color: var(--glow); border-color: rgba(46,204,154,0.3); }
-
-    /* Guides card */
-    .guide-steps { margin-top: 20px; display: flex; flex-direction: column; gap: 0; }
-    .guide-step {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 14px 0; border-bottom: 1px solid var(--border);
-    }
-    .guide-step:last-child { border-bottom: none; }
-    .step-num {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: rgba(46,204,154,0.1); border: 1px solid rgba(46,204,154,0.25);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.68rem; font-weight: 800; color: var(--glow); flex-shrink: 0;
-    }
-    .step-text { font-size: 0.82rem; color: var(--muted); line-height: 1.5; padding-top: 3px; }
-
-    /* Case tracker card */
-    .tracker-item {
-      margin-top: 20px;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px;
-    }
-    .tracker-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .tracker-name  { font-size: 0.95rem; font-weight: 700; color: var(--white); }
-    .tracker-badge { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; background: rgba(224,90,90,0.15); color: var(--urgent); border: 1px solid rgba(224,90,90,0.2); }
-    .tracker-bar-wrap { background: var(--dim); border-radius: 4px; height: 6px; margin-bottom: 10px; overflow: hidden; }
-    .tracker-bar { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--glow), var(--urgent)); width: 72%; animation: bar-grow 1.2s cubic-bezier(0.16,1,0.3,1) both; }
-    @keyframes bar-grow { from { width: 0%; } }
-    .tracker-meta { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); }
-    .tracker-remind { margin-top: 12px; font-size: 0.72rem; color: var(--glow); display: flex; align-items: center; gap: 6px; }
-
-    /* Pro card */
-    .bento-card.pro-card {
-      background: linear-gradient(135deg, #1a1400 0%, #241a00 50%, #1a1400 100%);
-      border-color: rgba(201,155,48,0.25);
-    }
-    .bento-card.pro-card:hover { border-color: rgba(201,155,48,0.4); }
-    .pro-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(201,155,48,0.12); border: 1px solid rgba(201,155,48,0.3);
-      border-radius: 8px; padding: 6px 14px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-    }
-    .letter-preview {
-      margin-top: 20px;
-      background: rgba(0,0,0,0.4); border: 1px solid rgba(201,155,48,0.15);
-      border-radius: 12px; padding: 20px;
-      font-family: "Courier New", monospace;
-      font-size: 0.78rem; color: rgba(255,255,255,0.55);
-      line-height: 1.8;
-    }
-    .letter-preview .lp-filled { color: var(--gold); }
-    .pro-actions { margin-top: 14px; display: flex; gap: 8px; }
-    .pro-action {
-      background: rgba(201,155,48,0.1); border: 1px solid rgba(201,155,48,0.25);
-      border-radius: 8px; padding: 8px 16px;
-      font-size: 0.75rem; color: var(--gold); font-weight: 600;
-    }
-
-    /* Search card */
-    .search-demo { margin-top: 20px; }
-    .search-bar {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 16px;
-      display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
-    }
-    .search-icon { color: var(--muted); font-size: 0.9rem; }
-    .search-text { font-size: 0.82rem; color: var(--white); }
-    .search-cursor { display: inline-block; width: 2px; height: 14px; background: var(--glow); animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 1px; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-    .search-results { display: flex; flex-direction: column; gap: 6px; }
-    .search-result {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 14px;
-    }
-    .sr-top { display: flex; justify-content: space-between; align-items: center; }
-    .sr-name { font-size: 0.8rem; color: var(--white); font-weight: 600; }
-    .sr-type { font-size: 0.65rem; color: var(--glow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-    .sr-sub  { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
-
-    /* ─── DARK SECTION ────────────────────────────────────── */
-    .dark-section {
-      background: var(--ink);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 60px;
-    }
-    .ds-header { margin-bottom: 48px; }
-    .ds-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 12px; }
-    .ds-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -1.5px; color: var(--white); line-height: 1.1; }
-    .ds-title em { font-style: normal; color: var(--muted); }
-    .ds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .ds-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px;
-      transition: border-color 0.2s;
-    }
-    .ds-card:hover { border-color: rgba(46,204,154,0.2); }
-    .ds-card-icon { font-size: 1.6rem; margin-bottom: 14px; }
-    .ds-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .ds-card p  { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-    .ds-pro-pill { display: inline-block; margin-top: 10px; background: rgba(201,155,48,0.1); border: 1px solid rgba(201,155,48,0.25); border-radius: 6px; padding: 3px 10px; font-size: 0.65rem; font-weight: 700; color: var(--gold); }
-
-    /* ─── EMERGENCY STRIP ─────────────────────────────────── */
-    .emergency-strip {
-      background: rgba(224,90,90,0.06);
-      border-top: 1px solid rgba(224,90,90,0.15);
-      border-bottom: 1px solid rgba(224,90,90,0.15);
-      padding: 48px 60px;
-      display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
-    }
-    .emergency-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--urgent); }
-    .emergency-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.8px; color: var(--white); margin-top: 6px; }
-    .emergency-sub   { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
-    .emergency-numbers { display: flex; gap: 12px; flex-wrap: wrap; }
-    .emnum {
-      display: flex; flex-direction: column;
-      background: var(--card); border: 1px solid rgba(224,90,90,0.2);
-      border-radius: 12px; padding: 14px 20px;
-      min-width: 140px;
-    }
-    .emnum-num   { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; color: var(--urgent); }
-    .emnum-label { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
-
-    /* ─── LANGUAGE BAR ────────────────────────────────────── */
-    .lang-bar {
-      padding: 50px 60px;
-      display: flex; align-items: center; gap: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-    .lang-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-    .lang-chips { display: flex; gap: 10px; flex-wrap: wrap; }
-    .lang-chip {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 10px 20px;
-      font-size: 0.88rem; font-weight: 600; color: var(--white);
-    }
-
-    /* ─── FINAL CTA ───────────────────────────────────────── */
-    .final-cta {
-      padding: 120px 60px;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .final-cta::before {
+    .phone-frame::before {
       content: "";
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(31,111,92,0.14) 0%, transparent 65%);
-      pointer-events: none;
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 7px; background: var(--border);
+      border-radius: 0 0 6px 6px; z-index: 2;
     }
-    .cta-app-icon { width: 80px; height: 80px; border-radius: 20px; margin: 0 auto 28px; display: block; box-shadow: 0 8px 40px rgba(46,204,154,0.2); position: relative; }
-    .final-cta h2 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2.5px; line-height: 1.05; max-width: 600px; margin: 0 auto 16px; }
-    .final-cta h2 em { font-style: normal; color: var(--glow); }
-    .final-cta p { font-size: 1rem; color: var(--muted); max-width: 400px; margin: 0 auto 44px; line-height: 1.7; }
-    .store-btn {
-      display: inline-flex; align-items: center; gap: 14px;
-      background: var(--glow); color: var(--black);
-      font-weight: 800; font-size: 1.05rem;
-      padding: 18px 36px; border-radius: 14px;
-      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
-      box-shadow: 0 0 60px rgba(46,204,154,0.2);
+    .phone-frame:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .phone-frame img { width: 100%; display: block; border-radius: 26px; }
+    .phone-caption {
+      padding: 12px 14px 16px;
+      font-size: 0.72rem; font-weight: 600; color: var(--muted); text-align: center;
     }
+
+    .scroll-hint {
+      padding: 0 60px;
+      font-size: 0.75rem; color: var(--soft);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .scroll-hint::before { content: "← →"; letter-spacing: 2px; color: var(--glow); }
+
+    /* ── SCENARIOS ── */
+    .scenarios { padding: 80px 60px; }
+    .scenarios-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .scenario-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px; position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .scenario-card:hover { border-color: rgba(40,200,138,0.25); transform: translateY(-3px); }
+    .scenario-card.urgent-card { border-color: rgba(224,85,85,0.2); }
+    .scenario-card.urgent-card:hover { border-color: rgba(224,85,85,0.4); }
+    .sc-tag {
+      display: inline-block; border-radius: 6px; padding: 4px 12px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .sc-tag.red   { background: rgba(224,85,85,0.1);  color: var(--urgent); border: 1px solid rgba(224,85,85,0.2); }
+    .sc-tag.green { background: rgba(40,200,138,0.08); color: var(--glow);   border: 1px solid rgba(40,200,138,0.2); }
+    .sc-tag.gold  { background: rgba(201,155,48,0.1);  color: var(--gold);   border: 1px solid rgba(201,155,48,0.2); }
+    .scenario-card h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; line-height: 1.25; }
+    .scenario-card p  { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .sc-action {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);
+      font-size: 0.82rem; font-weight: 700; color: var(--glow);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .sc-action.red { color: var(--urgent); }
+
+    /* ── TICKER ── */
+    .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--ink); overflow: hidden; padding: 13px 0; }
+    .ticker-inner { display: flex; gap: 48px; width: max-content; animation: tick 30s linear infinite; }
+    @keyframes tick { to { transform: translateX(-50%); } }
+    .tick-item { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 0.78rem; color: var(--muted); flex-shrink: 0; }
+    .tick-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--glow); }
+    .tick-name { color: var(--white); font-weight: 600; }
+    .tick-dl   { color: var(--urgent); font-weight: 700; }
+
+    /* ── STATS ── */
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .stat-cell { background: var(--ink); padding: 48px 52px; }
+    .stat-num { font-size: 3.6rem; font-weight: 800; letter-spacing: -3px; line-height: 1; color: var(--white); }
+    .stat-num sup { font-size: 2rem; vertical-align: top; margin-top: 6px; display: inline-block; color: var(--glow); }
+    .stat-lbl { font-size: 0.78rem; color: var(--muted); margin-top: 10px; line-height: 1.55; }
+
+    /* ── BENTO ── */
+    .bento { padding: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .bc {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      transition: border-color 0.25s; position: relative; overflow: hidden;
+    }
+    .bc:hover { border-color: rgba(40,200,138,0.2); }
+    .bc.s2 { grid-column: span 2; }
+    .bc.tall { grid-row: span 2; }
+    .bc.pro { background: linear-gradient(140deg,#160f00,#201500,#160f00); border-color: rgba(201,155,48,0.22); }
+    .bc.pro:hover { border-color: rgba(201,155,48,0.4); }
+    .bc.emergency-bc { background: rgba(224,85,85,0.04); border-color: rgba(224,85,85,0.15); }
+    .bc.emergency-bc:hover { border-color: rgba(224,85,85,0.3); }
+
+    .bc-eye { font-size: 0.63rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 12px; }
+    .bc-eye.red  { color: var(--urgent); }
+    .bc-eye.gold { color: var(--gold); }
+    .bc-h { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
+    .bc-p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+
+    /* situation rows */
+    .sit-rows { margin-top: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .sit-row { display: flex; align-items: center; justify-content: space-between; background: var(--surf); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; }
+    .sit-row-name { font-size: 0.82rem; font-weight: 600; color: var(--white); }
+    .sit-row-dl   { font-size: 0.72rem; font-weight: 700; color: var(--urgent); }
+
+    /* tracker */
+    .tracker { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .tcard { background: var(--surf); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .tcard-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .tcard-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
+    .tbadge { font-size: 0.63rem; font-weight: 700; padding: 3px 9px; border-radius: 5px; }
+    .tbadge.red   { background: rgba(224,85,85,0.12); color: var(--urgent); border: 1px solid rgba(224,85,85,0.2); }
+    .tbadge.green { background: rgba(40,200,138,0.1); color: var(--glow);   border: 1px solid rgba(40,200,138,0.2); }
+    .tbar-wrap { background: var(--dim); border-radius: 4px; height: 5px; margin-bottom: 8px; overflow: hidden; }
+    .tbar { height: 100%; border-radius: 4px; }
+    .tbar.urgent { background: linear-gradient(90deg, var(--glow), var(--urgent)); animation: grow 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .tbar.done   { background: var(--glow); animation: grow 1.2s cubic-bezier(.16,1,.3,1) .2s both; }
+    @keyframes grow { from { width: 0!important; } }
+    .tmeta { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); }
+    .tremind { margin-top: 10px; font-size: 0.7rem; color: var(--glow); }
+
+    /* tags */
+    .tag-cloud { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { background: var(--surf); border: 1px solid var(--border); border-radius: 7px; padding: 6px 13px; font-size: 0.76rem; color: var(--muted); font-weight: 500; transition: background .2s, color .2s, border-color .2s; cursor: default; }
+    .tag:hover { background: rgba(40,200,138,0.07); color: var(--glow); border-color: rgba(40,200,138,0.3); }
+
+    /* search demo */
+    .search-demo { margin-top: 18px; }
+    .sbar { background: var(--surf); border: 1px solid var(--border); border-radius: 9px; padding: 11px 14px; display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+    .sbar-q { font-size: 0.82rem; color: var(--white); }
+    .cursor { display: inline-block; width: 2px; height: 13px; background: var(--glow); animation: blink 1s step-end infinite; vertical-align: middle; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
+    .sresults { display: flex; flex-direction: column; gap: 6px; }
+    .sresult { background: var(--surf); border: 1px solid var(--border); border-radius: 9px; padding: 11px 13px; }
+    .sresult-top { display: flex; justify-content: space-between; align-items: center; }
+    .sresult-name { font-size: 0.8rem; font-weight: 600; color: var(--white); }
+    .sresult-type { font-size: 0.62rem; font-weight: 700; color: var(--glow); text-transform: uppercase; letter-spacing: 0.5px; }
+    .sresult-sub  { font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
+
+    /* guide steps */
+    .gsteps { margin-top: 18px; display: flex; flex-direction: column; }
+    .gstep { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .gstep:last-child { border-bottom: none; }
+    .gnum { width: 22px; height: 22px; border-radius: 50%; background: rgba(40,200,138,0.1); border: 1px solid rgba(40,200,138,0.25); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: var(--glow); flex-shrink: 0; }
+    .gtext { font-size: 0.8rem; color: var(--muted); padding-top: 2px; line-height: 1.5; }
+
+    /* pro card */
+    .pro-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,155,48,0.1); border: 1px solid rgba(201,155,48,0.28); border-radius: 7px; padding: 5px 13px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .letter-pre { margin-top: 18px; background: rgba(0,0,0,0.45); border: 1px solid rgba(201,155,48,0.12); border-radius: 11px; padding: 18px; font-family: "Courier New", monospace; font-size: 0.76rem; color: rgba(255,255,255,0.45); line-height: 1.85; }
+    .lf { color: var(--gold); }
+    .pro-acts { margin-top: 12px; display: flex; gap: 8px; }
+    .pro-act { background: rgba(201,155,48,0.08); border: 1px solid rgba(201,155,48,0.22); border-radius: 7px; padding: 7px 14px; font-size: 0.73rem; color: var(--gold); font-weight: 600; }
+
+    /* emergency bento card */
+    .emnum-grid { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .emnum { background: var(--surf); border: 1px solid rgba(224,85,85,0.15); border-radius: 10px; padding: 14px; }
+    .emnum-n { font-size: 1.4rem; font-weight: 800; letter-spacing: -1px; color: var(--urgent); }
+    .emnum-l { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+    /* incident report card */
+    .report-demo { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .report-item { background: var(--surf); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+    .report-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .rdot-red { background: var(--urgent); box-shadow: 0 0 8px rgba(224,85,85,0.5); }
+    .rdot-yellow { background: #F5A623; box-shadow: 0 0 8px rgba(245,166,35,0.5); }
+    .rdot-green { background: var(--glow); box-shadow: 0 0 8px rgba(40,200,138,0.4); }
+    .report-text { font-size: 0.8rem; color: var(--white); font-weight: 600; }
+    .report-sub  { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── ALL FEATURES ── */
+    .all-feat { background: var(--ink); border-top: 1px solid var(--border); padding: 80px 60px; }
+    .feat-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .feat-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: border-color .2s, transform .2s; }
+    .feat-card:hover { border-color: rgba(40,200,138,0.2); transform: translateY(-2px); }
+    .feat-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .feat-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 7px; }
+    .feat-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+    .feat-pro-tag { display: inline-block; margin-top: 8px; background: rgba(201,155,48,0.08); border: 1px solid rgba(201,155,48,0.22); border-radius: 5px; padding: 2px 9px; font-size: 0.63rem; font-weight: 700; color: var(--gold); }
+
+    /* ── LANG BAR ── */
+    .lang-bar { padding: 44px 60px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+    .lang-lbl { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .lang-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .lchip { background: var(--card); border: 1px solid var(--border); border-radius: 9px; padding: 9px 18px; font-size: 0.85rem; font-weight: 600; color: var(--white); }
+
+    /* ── FINAL CTA ── */
+    .final { padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
+    .final::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 900px; height: 900px; background: radial-gradient(circle, rgba(31,111,92,0.12) 0%, transparent 62%); pointer-events: none; }
+    .final-icon { width: 84px; height: 84px; border-radius: 22px; margin: 0 auto 28px; display: block; box-shadow: 0 0 60px rgba(40,200,138,0.2); position: relative; }
+    .final-h { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; letter-spacing: -2.5px; line-height: 1.05; max-width: 560px; margin: 0 auto 14px; }
+    .final-h em { font-style: normal; color: var(--glow); }
+    .final-sub { font-size: 0.95rem; color: var(--muted); max-width: 400px; margin: 0 auto 16px; line-height: 1.7; }
+    .final-free { font-size: 0.78rem; color: var(--soft); margin-bottom: 40px; }
+    .final-free strong { color: var(--white); }
+    .store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--glow); color: var(--black); font-weight: 800; font-size: 1rem; padding: 17px 34px; border-radius: 14px; text-decoration: none; transition: opacity .2s, transform .2s; box-shadow: 0 0 60px rgba(40,200,138,0.18); }
     .store-btn:hover { opacity: 0.88; transform: translateY(-2px); }
-    .store-btn svg { width: 22px; height: 22px; }
-    .free-note { margin-top: 14px; font-size: 0.78rem; color: var(--soft); }
+    .store-btn svg { width: 20px; height: 20px; }
+    .final-note { margin-top: 14px; font-size: 0.75rem; color: var(--soft); }
+    .final-rating { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); }
+    .final-rating .stars { color: #F5A623; }
 
-    /* ─── FOOTER ──────────────────────────────────────────── */
-    footer {
-      padding: 28px 60px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
-    .footer-logo { display: flex; align-items: center; gap: 8px; }
-    .footer-logo img { width: 22px; height: 22px; border-radius: 6px; }
-    .footer-logo span { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.78rem; color: var(--soft); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-right { font-size: 0.72rem; color: var(--soft); }
+    /* ── FOOTER ── */
+    footer { padding: 28px 60px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .foot-brand { display: flex; align-items: center; gap: 8px; }
+    .foot-brand img { width: 22px; height: 22px; border-radius: 6px; }
+    .foot-brand span { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a { font-size: 0.76rem; color: var(--soft); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: var(--white); }
+    .foot-r { font-size: 0.72rem; color: var(--soft); }
 
-    /* ─── ANIMATIONS ──────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    /* ── MOBILE STICKY ── */
+    .sticky-dl { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; padding: 12px 20px; background: rgba(9,16,14,0.95); backdrop-filter: blur(16px); border-top: 1px solid var(--border); }
+    .sticky-dl a { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--glow); color: var(--black); font-weight: 800; font-size: 0.95rem; padding: 14px; border-radius: 12px; text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    /* ── IAB ── */
+    #iab { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); align-items:flex-end; justify-content:center; padding:20px; }
+    #iab.on { display:flex; }
+    .iab-box { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px 24px; max-width:360px; width:100%; animation:sup .3s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes sup { from{transform:translateY(30px);opacity:0} }
+    .iab-box h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
+    .iab-box p  { font-size:0.85rem; color:var(--muted); margin-bottom:18px; line-height:1.6; }
+    .iab-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+    .iab-step  { display:flex; align-items:center; gap:12px; background:var(--surf); border-radius:10px; padding:11px 13px; }
+    .iab-num   { width:22px; height:22px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:800; color:#fff; flex-shrink:0; }
+    .iab-txt   { font-size:0.8rem; color:var(--muted); }
+    .iab-txt strong { color:var(--white); }
+    .iab-close { width:100%; padding:12px; background:transparent; border:1px solid var(--border); border-radius:10px; font-size:0.82rem; font-weight:600; color:var(--muted); cursor:pointer; }
+    .iab-close:hover { background:var(--surf); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
-      .hero { grid-template-columns: 1fr; padding: 90px 24px 60px; gap: 48px; }
-      .hero-right { display: none; }
-      .numbers-bar { grid-template-columns: 1fr 1fr; }
-      .num-cell { padding: 32px 24px; }
+      .nav-r .nav-lnk { display: none; }
+      .hero { padding: 90px 24px 60px; }
+      .trust-bar { display: grid; grid-template-columns: 1fr 1fr; }
+      .trust-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .trust-item:nth-child(2n) { border-right: none; }
+      .screenshots-header { padding: 0 24px 32px; }
+      .screenshots-scroll { padding: 8px 24px 20px; }
+      .scroll-hint { padding: 0 24px; }
+      .scenarios { padding: 60px 24px; }
+      .scenarios-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-cell { padding: 32px 28px; }
       .bento { grid-template-columns: 1fr; padding: 24px; }
-      .bento-card.span2, .bento-card.span3 { grid-column: span 1; }
-      .dark-section { padding: 60px 24px; }
-      .ds-grid { grid-template-columns: 1fr; }
-      .emergency-strip { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
-      .lang-bar { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
-      .final-cta { padding: 80px 24px; }
-      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
-      h1 { letter-spacing: -2px; }
+      .bc.s2 { grid-column: span 1; }
+      .all-feat { padding: 60px 24px; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .lang-bar { padding: 36px 24px; gap: 16px; flex-direction: column; align-items: flex-start; }
+      .final { padding: 80px 24px 120px; }
+      footer { padding: 24px; flex-direction: column; }
+      .sticky-dl { display: block; }
     }
-
-    /* ─── IAB ─────────────────────────────────────────────── */
-    #iab { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); align-items:flex-end; justify-content:center; padding:20px; }
-    #iab.on { display:flex; }
-    .iab-box { background:#1D2620; border:1px solid var(--border); border-radius:20px; padding:28px 24px; max-width:360px; width:100%; animation:slide-up 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-    @keyframes slide-up { from { transform:translateY(30px); opacity:0; } }
-    .iab-box h3 { font-size:1rem; font-weight:800; color:var(--white); margin-bottom:8px; }
-    .iab-box p  { font-size:0.85rem; color:var(--muted); margin-bottom:20px; line-height:1.6; }
-    .iab-steps  { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
-    .iab-step   { display:flex; align-items:center; gap:12px; background:var(--surface); border-radius:10px; padding:11px 14px; }
-    .iab-num    { width:22px; height:22px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:800; color:#fff; flex-shrink:0; }
-    .iab-txt    { font-size:0.8rem; color:var(--muted); font-weight:500; }
-    .iab-txt strong { color:var(--white); }
-    .iab-close  { width:100%; padding:12px; background:transparent; border:1px solid var(--border); border-radius:10px; font-size:0.82rem; font-weight:600; color:var(--muted); cursor:pointer; }
-    .iab-close:hover { background:var(--surface); }
+    @media (max-width: 500px) {
+      .feat-grid { grid-template-columns: 1fr; }
+      .trust-bar { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -486,7 +407,7 @@
 <div id="iab">
   <div class="iab-box">
     <h3>Open in Safari to download</h3>
-    <p>Instagram's browser can't open the App Store. Takes two taps to fix.</p>
+    <p>Instagram's browser can't open the App Store. Two taps to fix.</p>
     <div class="iab-steps">
       <div class="iab-step"><div class="iab-num">1</div><div class="iab-txt">Tap the <strong>&#8943; menu</strong> top-right</div></div>
       <div class="iab-step"><div class="iab-num">2</div><div class="iab-txt">Select <strong>"Open in external browser"</strong></div></div>
@@ -495,290 +416,386 @@
   </div>
 </div>
 
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-dl">
+  <a href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Free Download on the App Store
+  </a>
+</div>
+
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-brand" href="#">
     <img src="app-icon.png" alt="Malaysia Pocket" />
     <span>Malaysia Pocket</span>
   </a>
-  <div class="nav-right">
-    <a class="nav-link" href="#features">Features</a>
-    <a class="nav-link" href="#rights">Rights</a>
-    <a class="nav-cta" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">Free on App Store</a>
+  <div class="nav-r">
+    <a class="nav-lnk" href="#features">Features</a>
+    <a class="nav-lnk" href="#screenshots">Screenshots</a>
+    <a class="nav-dl" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">Free on App Store</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-flag">&#127474;&#127486; <span>Malaysia</span> &middot; For every rakyat</div>
-    <h1>Know<br>your<br><span class="accent">rights.</span><br><span class="dim-word">Beat</span> the<br><span class="accent">clock.</span></h1>
-    <p class="hero-sub">Emergency numbers, legal deadlines, step-by-step guides &mdash; and a complaint letter you can send today. In plain language, not legalese.</p>
-    <div class="hero-cta-row">
-      <a class="btn-download" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Download Free
-      </a>
-      <a class="btn-ghost" href="#features">See all features &rarr;</a>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <strong>Free</strong>
+      <span>&middot; Emergency, Safety &amp; Rights</span>
     </div>
+    <h1>Your rights.<br>Your safety.<br><span class="g">Your pocket.</span></h1>
+    <p class="hero-sub">
+      <strong>Stay informed, stay safe, and know your rights</strong> &mdash; your ultimate daily companion in Malaysia. One-tap emergency services, plain-language legal guidance, and step-by-step guides for everyday situations.
+    </p>
+    <div class="hero-pills">
+      <span class="pill red">&#127384; Emergency numbers</span>
+      <span class="pill">&#9878;&#65039; Know your rights</span>
+      <span class="pill">&#128221; Daily guides</span>
+      <span class="pill">&#128198; Deadline tracker</span>
+      <span class="pill green">Free to download</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn-dl" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
+    <p class="hero-note" style="margin-top:14px;">Free &middot; iOS 17+ &middot; No account needed &middot; &#127474;&#127486; Made in Malaysia</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="trust-item"><span class="trust-icon">&#127384;</span><span class="trust-text"><strong>Emergency ready</strong> &mdash; one tap to call</span></div>
+  <div class="trust-item"><span class="trust-icon">&#128274;</span><span class="trust-text"><strong>Privacy first</strong> &mdash; no account, no upload</span></div>
+  <div class="trust-item"><span class="trust-icon">&#127474;&#127486;</span><span class="trust-text"><strong>Made for Malaysia</strong> &mdash; laws &amp; agencies</span></div>
+  <div class="trust-item"><span class="trust-icon">&#127381;</span><span class="trust-text"><strong>Free to download</strong> &mdash; full library included</span></div>
+</div>
+
+<!-- SCREENSHOTS -->
+<div id="screenshots" class="screenshots-section reveal">
+  <div class="screenshots-header">
+    <div class="section-eye">See the app</div>
+    <div class="section-h2">Everything you need, <em>beautifully organised</em></div>
   </div>
 
-  <div class="hero-right">
-    <div class="clock-widget">
-      <div class="clock-label">Active case &middot; Deadline tracker</div>
-      <div class="clock-situation">Unfair dismissal &mdash; Industrial Relations Act 1967</div>
-      <div class="clock-started">Clock started: 1 August 2026</div>
-      <div class="clock-ring">
-        <svg viewBox="0 0 120 120">
-          <circle class="ring-track" cx="60" cy="60" r="54"/>
-          <circle class="ring-fill" cx="60" cy="60" r="54"/>
-        </svg>
-        <div class="clock-center">
-          <div class="clock-days">47</div>
-          <div class="clock-days-label">days left</div>
-        </div>
-      </div>
-      <div class="clock-row"><span class="clock-row-label">Deadline</span><span class="clock-row-val">29 Sep 2026</span></div>
-      <div class="clock-row"><span class="clock-row-label">Status</span><span class="clock-row-badge">Urgent</span></div>
-      <div class="clock-row"><span class="clock-row-label">Reminder</span><span class="clock-row-val">Set &middot; 22 Sep 2026</span></div>
+  <div class="screenshots-scroll" id="ssScroll">
+    <div class="phone-frame">
+      <img src="screenshots/01_home.png" alt="Malaysia Pocket home screen" loading="lazy" />
+      <div class="phone-caption">Home &amp; Emergency</div>
     </div>
+    <div class="phone-frame">
+      <img src="screenshots/02_situations.png" alt="Situations with deadlines" loading="lazy" />
+      <div class="phone-caption">Situations &amp; Deadlines</div>
+    </div>
+    <div class="phone-frame">
+      <img src="screenshots/03_tracking.png" alt="Case tracking and reminders" loading="lazy" />
+      <div class="phone-caption">Case Tracking</div>
+    </div>
+    <div class="phone-frame">
+      <img src="screenshots/04_rights.png" alt="Know your rights" loading="lazy" />
+      <div class="phone-caption">Know Your Rights</div>
+    </div>
+    <div class="phone-frame">
+      <img src="screenshots/05_guides_search.png" alt="Guides and search" loading="lazy" />
+      <div class="phone-caption">Guides &amp; Search</div>
+    </div>
+    <div class="phone-frame">
+      <img src="screenshots/06_pro.png" alt="Pocket Pro complaint letter" loading="lazy" />
+      <div class="phone-caption">Pocket Pro</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Drag to see all screens</div>
+</div>
+
+<!-- SCENARIOS -->
+<section class="scenarios reveal">
+  <div class="section-eye">Everyday situations</div>
+  <div class="section-h2">Built for moments <em>that actually happen</em></div>
+  <div class="scenarios-grid">
+
+    <div class="scenario-card urgent-card">
+      <span class="sc-tag red">Emergency</span>
+      <h3>You need help — right now</h3>
+      <p>Police, fire, ambulance, and emergency contacts are always one tap away on the home screen. No searching, no fumbling.</p>
+      <div class="sc-action red">&#127384; Call 999 &rarr;</div>
+    </div>
+
+    <div class="scenario-card">
+      <span class="sc-tag green">Deadline Running</span>
+      <h3>Your employer hasn't paid you in 3 weeks</h3>
+      <p>You have 14 days from your last pay date to file with JTK. Malaysia Pocket shows exactly what to do, what to bring, and tracks the countdown so you don't miss it.</p>
+      <div class="sc-action">&#9201; Track the deadline &rarr;</div>
+    </div>
+
+    <div class="scenario-card">
+      <span class="sc-tag gold">Daily Life</span>
+      <h3>A police officer stops you at a roadblock</h3>
+      <p>You must show your IC — but you have the right to remain silent beyond that. Malaysia Pocket tells you exactly what you can and cannot be made to do, citing the actual law.</p>
+      <div class="sc-action">&#9878;&#65039; Know your rights &rarr;</div>
+    </div>
+
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Unpaid wages</span> &mdash; <span class="t-deadline">14 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Unfair dismissal</span> &mdash; <span class="t-deadline">60 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Consumer complaint</span> &mdash; <span class="t-deadline">3 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Landlord kept deposit</span> &mdash; <span class="t-deadline">6 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Road accident claim</span> &mdash; <span class="t-deadline">3 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">LHDN tax dispute</span> &mdash; <span class="t-deadline">30 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">EPF contribution</span> &mdash; <span class="t-deadline">6 months</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Medical negligence</span> &mdash; <span class="t-deadline">3 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Unpaid wages</span> &mdash; <span class="t-deadline">14 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Unfair dismissal</span> &mdash; <span class="t-deadline">60 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Consumer complaint</span> &mdash; <span class="t-deadline">3 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Landlord kept deposit</span> &mdash; <span class="t-deadline">6 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Road accident claim</span> &mdash; <span class="t-deadline">3 years</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">LHDN tax dispute</span> &mdash; <span class="t-deadline">30 days</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">EPF contribution</span> &mdash; <span class="t-deadline">6 months</span></div>
-    <div class="ticker-item"><span class="t-dot"></span><span class="t-name">Medical negligence</span> &mdash; <span class="t-deadline">3 years</span></div>
+  <div class="ticker-inner">
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Unpaid wages</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">14 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Unfair dismissal</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">60 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Consumer complaint</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Landlord kept deposit</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">6 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Road accident claim</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">LHDN tax dispute</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">30 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">EPF contribution dispute</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">6 months</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Medical negligence</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Individual bankruptcy</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">Notice date</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Unpaid wages</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">14 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Unfair dismissal</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">60 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Consumer complaint</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Landlord kept deposit</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">6 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Road accident claim</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">LHDN tax dispute</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">30 days</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">EPF contribution dispute</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">6 months</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Medical negligence</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">3 years</span></div>
+    <div class="tick-item"><span class="tick-dot"></span><span class="tick-name">Individual bankruptcy</span>&nbsp;&mdash;&nbsp;<span class="tick-dl">Notice date</span></div>
   </div>
 </div>
 
-<!-- NUMBERS -->
-<div class="numbers-bar reveal">
-  <div class="num-cell">
-    <div class="num-big">30<span class="plus">+</span></div>
-    <div class="num-label">Situations covered<br>with deadlines &amp; steps</div>
-  </div>
-  <div class="num-cell">
-    <div class="num-big">50<span class="plus">+</span></div>
-    <div class="num-label">Rights topics<br>citing actual Malaysian law</div>
-  </div>
-  <div class="num-cell">
-    <div class="num-big">12</div>
-    <div class="num-label">Step-by-step guides<br>from start to finish</div>
-  </div>
-  <div class="num-cell">
-    <div class="num-big">4</div>
-    <div class="num-label">Languages<br>EN &middot; BM &middot; &#20013;&#25991; &middot; &#2980;&#2990;&#3007;&#2996;&#3021;</div>
-  </div>
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stat-cell"><div class="stat-num">30<sup>+</sup></div><div class="stat-lbl">Situations covered with exact deadlines and next steps</div></div>
+  <div class="stat-cell"><div class="stat-num">50<sup>+</sup></div><div class="stat-lbl">Rights topics citing actual Malaysian statutes</div></div>
+  <div class="stat-cell"><div class="stat-num">12</div><div class="stat-lbl">Step-by-step guides from start to finish</div></div>
+  <div class="stat-cell"><div class="stat-num">4</div><div class="stat-lbl">Languages &mdash; EN &middot; BM &middot; &#20013;&#25991; &middot; &#2980;&#2990;&#3007;&#2996;&#3021;</div></div>
 </div>
 
-<!-- BENTO GRID -->
+<!-- BENTO -->
 <div id="features" class="bento reveal">
 
   <!-- Situations -->
-  <div class="bento-card span2">
-    <div class="bento-eyebrow">Situations</div>
-    <div class="bento-title">Start with what happened &mdash; not what law it falls under</div>
-    <div class="bento-body">Every situation shows the deadline, what to do first, evidence to collect, and the agency to contact.</div>
-    <div class="sit-list">
-      <div class="sit-item"><span class="sit-name">My employer hasn&rsquo;t paid me</span><span class="sit-deadline">&#9201; 14 days</span></div>
-      <div class="sit-item"><span class="sit-name">I was dismissed unfairly</span><span class="sit-deadline">&#9201; 60 days</span></div>
-      <div class="sit-item"><span class="sit-name">Landlord won&rsquo;t return my deposit</span><span class="sit-deadline">&#9201; 6 years</span></div>
-      <div class="sit-item"><span class="sit-name">I received a tax assessment</span><span class="sit-deadline">&#9201; 30 days</span></div>
+  <div class="bc s2">
+    <div class="bc-eye">Situations</div>
+    <div class="bc-h">What happened? Start there &mdash; not with a law book</div>
+    <div class="bc-p">Every situation includes the deadline, what evidence to collect, and exactly which agency to contact.</div>
+    <div class="sit-rows">
+      <div class="sit-row"><span class="sit-row-name">My employer hasn&rsquo;t paid me</span><span class="sit-row-dl">&#9201; 14 days</span></div>
+      <div class="sit-row"><span class="sit-row-name">I was dismissed unfairly</span><span class="sit-row-dl">&#9201; 60 days</span></div>
+      <div class="sit-row"><span class="sit-row-name">Landlord won&rsquo;t return deposit</span><span class="sit-row-dl">&#9201; 6 years</span></div>
+      <div class="sit-row"><span class="sit-row-name">I received an LHDN assessment</span><span class="sit-row-dl">&#9201; 30 days</span></div>
     </div>
   </div>
 
-  <!-- Case Tracker -->
-  <div class="bento-card tall">
-    <div class="bento-eyebrow">Case Tracker &middot; Pro</div>
-    <div class="bento-title">A countdown you can&rsquo;t ignore</div>
-    <div class="bento-body">Reminders at 30, 7, and 1 day. Notes and evidence photos stay on-device &mdash; nothing is uploaded.</div>
-    <div class="tracker-item">
-      <div class="tracker-header">
-        <div class="tracker-name">Unfair dismissal</div>
-        <div class="tracker-badge">47 days left</div>
+  <!-- Tracker -->
+  <div class="bc tall">
+    <div class="bc-eye gold">Case Tracker &middot; Pro</div>
+    <div class="bc-h">A deadline you can&rsquo;t accidentally miss</div>
+    <div class="bc-p">Reminders at 30, 7, and 1 day. Notes and photos stay on-device only.</div>
+    <div class="tracker">
+      <div class="tcard">
+        <div class="tcard-top"><span class="tcard-name">Unfair dismissal</span><span class="tbadge red">47 days left</span></div>
+        <div class="tbar-wrap"><div class="tbar urgent" style="width:72%"></div></div>
+        <div class="tmeta"><span>Started 1 Aug</span><span>Due 29 Sep</span></div>
+        <div class="tremind">&#128276; Reminder: 22 September 2026</div>
       </div>
-      <div class="tracker-bar-wrap"><div class="tracker-bar"></div></div>
-      <div class="tracker-meta"><span>Started 1 Aug</span><span>Due 29 Sep</span></div>
-      <div class="tracker-remind">&#128276; Reminder: 22 September 2026</div>
+      <div class="tcard">
+        <div class="tcard-top"><span class="tcard-name">Wage claim (JTK)</span><span class="tbadge green">Submitted</span></div>
+        <div class="tbar-wrap"><div class="tbar done" style="width:28%"></div></div>
+        <div class="tmeta"><span>Started 22 Jul</span><span>Due 5 Aug</span></div>
+      </div>
     </div>
-    <div class="tracker-item" style="margin-top:10px;">
-      <div class="tracker-header">
-        <div class="tracker-name">Wage claim (JTK)</div>
-        <div class="tracker-badge" style="background:rgba(46,204,154,0.1);color:var(--glow);border-color:rgba(46,204,154,0.2);">Submitted</div>
-      </div>
-      <div class="tracker-bar-wrap"><div class="tracker-bar" style="width:30%;background:var(--glow);"></div></div>
-      <div class="tracker-meta"><span>Started 22 Jul</span><span>Due 5 Aug</span></div>
+  </div>
+
+  <!-- Emergency -->
+  <div class="bc emergency-bc">
+    <div class="bc-eye red">Emergency Help</div>
+    <div class="bc-h">One tap to reach help &mdash; always on the home screen</div>
+    <div class="bc-p">Police, fire, ambulance, and specialist lines &mdash; immediately accessible.</div>
+    <div class="emnum-grid">
+      <div class="emnum"><div class="emnum-n">999</div><div class="emnum-l">Police / Fire / Ambulance</div></div>
+      <div class="emnum"><div class="emnum-n">994</div><div class="emnum-l">Fire &amp; Rescue (JBPM)</div></div>
+      <div class="emnum"><div class="emnum-n">991</div><div class="emnum-l">Gas Emergency</div></div>
+      <div class="emnum"><div class="emnum-n">15999</div><div class="emnum-l">Talian Kasih (crisis)</div></div>
+    </div>
+  </div>
+
+  <!-- Incident Reporting -->
+  <div class="bc">
+    <div class="bc-eye red">Incident Reporting</div>
+    <div class="bc-h">Report reckless driving &amp; unsafe events</div>
+    <div class="bc-p">Contribute to a safer community. Quickly report incidents to the right channels.</div>
+    <div class="report-demo">
+      <div class="report-item"><div class="report-dot rdot-red"></div><div><div class="report-text">Reckless driving</div><div class="report-sub">Report to JPJ / PDRM</div></div></div>
+      <div class="report-item"><div class="report-dot rdot-yellow"></div><div><div class="report-text">Road hazard</div><div class="report-sub">Report to JKR / local council</div></div></div>
+      <div class="report-item"><div class="report-dot rdot-green"></div><div><div class="report-text">Submitted</div><div class="report-sub">Reference: JPJ/2026/08/4421</div></div></div>
     </div>
   </div>
 
   <!-- Rights -->
-  <div class="bento-card">
-    <div class="bento-eyebrow">Know Your Rights</div>
-    <div class="bento-title">Your rights, with the actual law cited</div>
-    <div class="bento-body">Police stops, employer obligations, tenant rights, consumer law &mdash; all in plain language.</div>
-    <div class="rights-tag-cloud">
-      <span class="rights-tag">Police stops</span>
-      <span class="rights-tag">Arrest &amp; detention</span>
-      <span class="rights-tag">Employment</span>
-      <span class="rights-tag">Tenancy</span>
-      <span class="rights-tag">Consumer</span>
-      <span class="rights-tag">Banking &amp; debt</span>
-      <span class="rights-tag">Education</span>
-      <span class="rights-tag">Voting</span>
-      <span class="rights-tag">Social media</span>
+  <div class="bc">
+    <div class="bc-eye">Know Your Rights</div>
+    <div class="bc-h">Your rights, with the actual law cited</div>
+    <div class="bc-p">Consumer, employment, tenancy, police &mdash; plain language, real statutes.</div>
+    <div class="tag-cloud">
+      <span class="tag">Police stops</span>
+      <span class="tag">Arrest &amp; detention</span>
+      <span class="tag">Employment</span>
+      <span class="tag">Tenancy</span>
+      <span class="tag">Consumer</span>
+      <span class="tag">Banking &amp; debt</span>
+      <span class="tag">Education</span>
+      <span class="tag">Voting</span>
     </div>
   </div>
 
   <!-- Search -->
-  <div class="bento-card">
-    <div class="bento-eyebrow">Global Search</div>
-    <div class="bento-title">One search across everything</div>
-    <div class="bento-body">Situations, rights, guides, and complaint channels all surface in a single query.</div>
+  <div class="bc">
+    <div class="bc-eye">Global Search</div>
+    <div class="bc-h">One search across everything</div>
+    <div class="bc-p">Situations, rights, guides, complaint channels &mdash; one query, all results.</div>
     <div class="search-demo">
-      <div class="search-bar"><span class="search-icon">&#9906;</span><span class="search-text">landlord deposit<span class="search-cursor"></span></span></div>
-      <div class="search-results">
-        <div class="search-result"><div class="sr-top"><span class="sr-name">Landlord kept my deposit</span><span class="sr-type">Situation</span></div><div class="sr-sub">6 years &middot; Tribunal Tuntutan Pembeli Rumah</div></div>
-        <div class="search-result"><div class="sr-top"><span class="sr-name">Tenant rights on deposits</span><span class="sr-type">Rights</span></div><div class="sr-sub">Contracts Act 1950 &middot; Housing rules</div></div>
-        <div class="search-result"><div class="sr-top"><span class="sr-name">File with Tribunal Pengguna</span><span class="sr-type">Guide</span></div><div class="sr-sub">8 steps &middot; RM5 filing fee</div></div>
+      <div class="sbar"><span style="color:var(--muted)">&#9906;</span><span class="sbar-q">landlord deposit<span class="cursor"></span></span></div>
+      <div class="sresults">
+        <div class="sresult"><div class="sresult-top"><span class="sresult-name">Landlord kept my deposit</span><span class="sresult-type">Situation</span></div><div class="sresult-sub">6 years &middot; Tribunal Tuntutan Pembeli Rumah</div></div>
+        <div class="sresult"><div class="sresult-top"><span class="sresult-name">Tenant rights on deposits</span><span class="sresult-type">Rights</span></div><div class="sresult-sub">Contracts Act 1950</div></div>
+        <div class="sresult"><div class="sresult-top"><span class="sresult-name">File with Tribunal Pengguna</span><span class="sresult-type">Guide</span></div><div class="sresult-sub">8 steps &middot; RM5 filing fee</div></div>
       </div>
     </div>
   </div>
 
   <!-- Guides -->
-  <div class="bento-card">
-    <div class="bento-eyebrow">Guides</div>
-    <div class="bento-title">12 full procedures, step by step</div>
-    <div class="bento-body">Check off steps as you go. No gaps, no &ldquo;consult a lawyer&rdquo; dead-ends.</div>
-    <div class="guide-steps">
-      <div class="guide-step"><div class="step-num">1</div><div class="step-text">Go to nearest Balai Polis. Bring IC and evidence.</div></div>
-      <div class="guide-step"><div class="step-num">2</div><div class="step-text">Fill in the Borang LP (police report form). Request a copy.</div></div>
-      <div class="guide-step"><div class="step-num">3</div><div class="step-text">Follow up at the counter after 3 working days.</div></div>
+  <div class="bc">
+    <div class="bc-eye">Daily Guides</div>
+    <div class="bc-h">Practical tips for everyday challenges</div>
+    <div class="bc-p">12 full step-by-step procedures &mdash; no gaps, no &ldquo;consult a lawyer&rdquo; dead-ends.</div>
+    <div class="gsteps">
+      <div class="gstep"><div class="gnum">1</div><div class="gtext">Go to nearest Balai Polis. Bring IC and evidence photos.</div></div>
+      <div class="gstep"><div class="gnum">2</div><div class="gtext">Fill in Borang LP (police report form). Request your copy.</div></div>
+      <div class="gstep"><div class="gnum">3</div><div class="gtext">Follow up at the counter after 3 working days.</div></div>
     </div>
   </div>
 
   <!-- Pro -->
-  <div class="bento-card span2 pro-card">
+  <div class="bc s2 pro">
     <div class="pro-badge">&#128081; Pocket Pro</div>
-    <div class="bento-title">Auto-generated complaint letter</div>
-    <div class="bento-body">Fill in your name and what happened &mdash; the app structures the letter in Bahasa Malaysia and English, ready to email or share directly.</div>
-    <div class="letter-preview">
+    <div class="bc-h">Auto-generated complaint letter &mdash; in BM and English</div>
+    <div class="bc-p">Fill in your name and what happened. The app structures the full letter, ready to email or share directly.</div>
+    <div class="letter-pre">
 Kepada Yang Berhormat,<br>
 Pengarah, Jabatan Tenaga Kerja<br><br>
-Saya, <span class="lp-filled">Ahmad bin Abdullah</span> (No. IC: <span class="lp-filled">880101-01-1234</span>),<br>
-ingin membuat aduan berkenaan gaji tidak<br>
-dibayar bagi bulan <span class="lp-filled">Mei &ndash; Julai 2026</span><br>
-berjumlah <span class="lp-filled">RM 4,500</span>.
+Saya, <span class="lf">Ahmad bin Abdullah</span> (No. IC: <span class="lf">880101-01-1234</span>),<br>
+ingin membuat aduan berkenaan gaji tidak dibayar<br>
+bagi bulan <span class="lf">Mei &ndash; Julai 2026</span>, berjumlah <span class="lf">RM 4,500</span>.
     </div>
-    <div class="pro-actions">
-      <div class="pro-action">&#128228; Share</div>
-      <div class="pro-action">&#128203; Copy</div>
-      <div class="pro-action">&#9993;&#65039; Email</div>
+    <div class="pro-acts">
+      <div class="pro-act">&#128228; Share</div>
+      <div class="pro-act">&#128203; Copy</div>
+      <div class="pro-act">&#9993;&#65039; Email</div>
     </div>
   </div>
 
 </div>
 
 <!-- ALL FEATURES -->
-<div id="rights" class="dark-section reveal">
-  <div class="ds-header">
-    <div class="ds-eyebrow">Everything inside</div>
-    <div class="ds-title">Built for the moment<br>you actually <em>need it</em></div>
-  </div>
-  <div class="ds-grid">
-    <div class="ds-card"><div class="ds-card-icon">&#9889;</div><h3>30+ Situations</h3><p>Employer disputes, landlord issues, LHDN assessments, bankruptcy notices &mdash; each with the deadline, the steps, and the right agency.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128737;</div><h3>50+ Rights Topics</h3><p>Every topic cites the actual Malaysian law it&rsquo;s based on &mdash; not paraphrased opinion, but the statute name and section.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128197;</div><h3>Deadline Tracker</h3><p>Reminders at 30, 7, and 1 day before the deadline. All on-device &mdash; no account, no cloud.</p><span class="ds-pro-pill">Pro</span></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128221;</div><h3>Complaint Letter</h3><p>Auto-structured in BM and English. Fill in your details and the situation &mdash; everything else is formatted for you.</p><span class="ds-pro-pill">Pro</span></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128203;</div><h3>12 Guides</h3><p>File a police report, contest a summons, claim EPF, write a will &mdash; full procedures with progress tracking.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128269;</div><h3>Global Search</h3><p>One search bar across all situations, rights, guides, and complaint channels &mdash; everything surfaces at once.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128278;</div><h3>Bookmarks</h3><p>Save anything with one tap. Saved items always reflect the latest content &mdash; no stale snapshots.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128198;</div><h3>Holidays &amp; Calendar</h3><p>Public holidays by state, school terms, LRT/MRT station mall connections, parking rates.</p></div>
-    <div class="ds-card"><div class="ds-card-icon">&#128274;</div><h3>Your data stays yours</h3><p>Cases, notes, and evidence photos live only on your device. Nothing is uploaded. No account required.</p></div>
+<div class="all-feat reveal">
+  <div class="section-eye">Complete feature list</div>
+  <div class="section-h2">Built for the moment <em>you actually need it</em></div>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-icon">&#127384;</div><h3>Emergency Help</h3><p>One-tap access to police, fire, ambulance, gas, and specialist crisis lines &mdash; always on the home screen.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#9878;&#65039;</div><h3>Know Your Rights</h3><p>50+ rights topics for consumers and Malaysian citizens, each citing the actual law so you know it's authoritative.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128221;</div><h3>Daily Guides</h3><p>12 practical, step-by-step procedures for common situations &mdash; file a report, contest a summons, claim EPF.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#9201;</div><h3>Deadline Tracker</h3><p>Track open cases with reminders at 30, 7, and 1 day. Notes and photos, all on-device.</p><span class="feat-pro-tag">Pro</span></div>
+    <div class="feat-card"><div class="feat-icon">&#128221;</div><h3>Complaint Letter</h3><p>Auto-structured in Bahasa Malaysia and English. Ready to share or email in seconds.</p><span class="feat-pro-tag">Pro</span></div>
+    <div class="feat-card"><div class="feat-icon">&#128680;</div><h3>Incident Reporting</h3><p>Report reckless driving or unsafe events to the right agency. Contribute to community safety.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128269;</div><h3>Global Search</h3><p>One search bar across situations, rights, guides, and complaint channels &mdash; everything at once.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128278;</div><h3>Bookmarks</h3><p>Save any situation or guide with one tap. Always synced with the latest content.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128197;</div><h3>Holidays &amp; Calendar</h3><p>State-specific public holidays, school terms, LRT/MRT mall connections, and parking rates.</p></div>
   </div>
 </div>
 
-<!-- EMERGENCY -->
-<div class="emergency-strip reveal">
-  <div>
-    <div class="emergency-label">Always there</div>
-    <div class="emergency-title">Emergency numbers</div>
-    <div class="emergency-sub">One tap to call. Always on the home screen.</div>
-  </div>
-  <div class="emergency-numbers">
-    <div class="emnum"><div class="emnum-num">999</div><div class="emnum-label">Police / Ambulance / Fire</div></div>
-    <div class="emnum"><div class="emnum-num">994</div><div class="emnum-label">Fire &amp; Rescue (JBPM)</div></div>
-    <div class="emnum"><div class="emnum-num">991</div><div class="emnum-label">Gas Emergency (Gas Malaysia)</div></div>
-    <div class="emnum"><div class="emnum-num">15999</div><div class="emnum-label">Talian Kasih (crisis line)</div></div>
-  </div>
-</div>
-
-<!-- LANGUAGE -->
+<!-- LANG -->
 <div class="lang-bar reveal">
-  <div class="lang-label">Available in</div>
+  <div class="lang-lbl">Available in</div>
   <div class="lang-chips">
-    <div class="lang-chip">&#127468;&#127463; English</div>
-    <div class="lang-chip">&#127474;&#127486; Bahasa Malaysia</div>
-    <div class="lang-chip">&#127464;&#127475; &#20013;&#25991;</div>
-    <div class="lang-chip">&#127470;&#127475; &#2980;&#2990;&#3007;&#2996;&#3021;</div>
+    <div class="lchip">&#127468;&#127463; English</div>
+    <div class="lchip">&#127474;&#127486; Bahasa Malaysia</div>
+    <div class="lchip">&#127464;&#127475; &#20013;&#25991;</div>
+    <div class="lchip">&#127470;&#127475; &#2980;&#2990;&#3007;&#2996;&#3021;</div>
   </div>
 </div>
 
-<!-- FINAL CTA -->
-<section class="final-cta reveal">
-  <img src="app-icon.png" alt="Malaysia Pocket app icon" class="cta-app-icon" />
-  <h2>Know what to do<br><em>before time runs out</em></h2>
-  <p>Free to download. The full situations library, rights guide, search, bookmarks, and holiday calendar are all free. No sign-up needed.</p>
+<!-- CTA -->
+<section class="final reveal">
+  <img src="app-icon.png" alt="Malaysia Pocket" class="final-icon" />
+  <div class="final-h">Stay <em>empowered,</em><br>informed, and secure</div>
+  <p class="final-sub">Your ultimate daily companion in Malaysia &mdash; for when it matters most.</p>
+  <p class="final-free">Free to download. Situations, rights, guides, search and bookmarks are <strong>all free</strong>.</p>
   <a class="store-btn" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-    Download on the App Store
+    Download Free on App Store
   </a>
-  <div class="free-note">Free &middot; iOS 17+ &middot; No account required</div>
+  <div class="final-note">iOS 17+ &middot; No sign-up &middot; No data uploaded &middot; &#127474;&#127486; Made in Malaysia</div>
+  <div class="final-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Free on the App Store</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
+  <div class="foot-brand">
     <img src="app-icon.png" alt="Malaysia Pocket" />
     <span>Malaysia Pocket</span>
   </div>
-  <div class="footer-links">
+  <div class="foot-links">
     <a href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">App Store</a>
     <a href="mailto:kelvin.vins@gmail.com">Contact</a>
-    <span style="color:var(--soft);font-size:0.78rem;">Guidance only &mdash; not legal advice</span>
+    <span style="color:var(--soft);font-size:0.76rem;">Guidance only &mdash; not legal advice</span>
   </div>
-  <div class="footer-right">&copy; 2026 DaddyCoding &middot; &#127474;&#127486;</div>
+  <div class="foot-r">&copy; 2026 DaddyCoding &middot; &#127474;&#127486;</div>
 </footer>
 
 <script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
+  // Scroll reveal
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+  // Drag-to-scroll screenshots
+  const ss = document.getElementById('ssScroll');
+  if (ss) {
+    let down = false, sx = 0, sl = 0;
+    ss.addEventListener('mousedown', e => { down = true; sx = e.pageX - ss.offsetLeft; sl = ss.scrollLeft; });
+    ss.addEventListener('mouseleave', () => down = false);
+    ss.addEventListener('mouseup', () => down = false);
+    ss.addEventListener('mousemove', e => {
+      if (!down) return;
+      e.preventDefault();
+      ss.scrollLeft = sl - (e.pageX - ss.offsetLeft - sx) * 1.5;
+    });
+  }
+
+  // IAB
   (function () {
-    const ua = navigator.userAgent || '';
-    if (!/Instagram|FBAN|FBAV|FB_IAB|TikTok/i.test(ua)) return;
+    if (!/Instagram|FBAN|FBAV|FB_IAB|TikTok/i.test(navigator.userAgent)) return;
     document.querySelectorAll('a[href*="apps.apple.com"]').forEach(a => {
       a.addEventListener('click', e => { e.preventDefault(); document.getElementById('iab').classList.add('on'); });
     });
     setTimeout(() => document.getElementById('iab').classList.add('on'), 1200);
   })();
+
+  // Hide sticky CTA once final CTA is visible
+  const finalSec = document.querySelector('.final');
+  const stickyCta = document.querySelector('.sticky-dl');
+  if (finalSec && stickyCta) {
+    const hideObs = new IntersectionObserver(([e]) => {
+      stickyCta.style.opacity = e.isIntersecting ? '0' : '1';
+      stickyCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    }, { threshold: 0.1 });
+    hideObs.observe(finalSec);
+    stickyCta.style.transition = 'opacity 0.3s';
+  }
 </script>
 </body>
 </html>
