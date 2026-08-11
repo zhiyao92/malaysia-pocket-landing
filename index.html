@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malaysia Pocket — Know Your Rights. Beat the Clock.</title>
+  <meta name="description" content="Malaysia Pocket gives every Malaysian plain-language answers to what happened, how long they have, and who to call — before the deadline passes." />
+  <meta property="og:title" content="Malaysia Pocket — Know Your Rights. Beat the Clock." />
+  <meta property="og:description" content="Situations, deadlines, rights, guides, complaint channels — and a complaint letter you can send today." />
+  <meta property="og:image" content="https://zhiyao92.github.io/malaysia-pocket-landing/app-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="app-icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #1F6F5C;
+      --green-dark:  #144F41;
+      --green-light: #2D9478;
+      --green-bg:    #EDF7F4;
+      --green-muted: #82A59B;
+      --urgent:      #CD5C5C;
+      --urgent-bg:   #FFF5F5;
+      --gold:        #C99B30;
+      --gold-bg:     #FFF8E6;
+      --bg:          #F7FAF9;
+      --surface:     #FFFFFF;
+      --surface2:    #F0F5F3;
+      --border:      #D8EDE7;
+      --text:        #1A2E2A;
+      --muted:       #5A7A72;
+      --soft:        #9DB8B2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(247,250,249,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 2px 8px rgba(31,111,92,0.25); }
+    .nav-logo span { font-weight: 800; font-size: 1.1rem; color: var(--text); letter-spacing: -0.4px; }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; transform: scale(1.03); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 140px 24px 80px;
+      text-align: center;
+      background: linear-gradient(165deg, var(--green-dark) 0%, var(--green) 55%, var(--green-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7.5vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+      color: #fff;
+      max-width: 860px;
+    }
+    h1 em { font-style: normal; color: rgba(255,255,255,0.65); }
+
+    .hero-sub {
+      margin-top: 24px;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      margin-top: 44px;
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff;
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .btn-secondary {
+      display: inline-flex; align-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 28px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    .hero-stats {
+      margin-top: 72px;
+      display: flex; gap: 56px; flex-wrap: wrap; justify-content: center;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2.4rem; font-weight: 800; color: #fff; letter-spacing: -1.5px; }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; font-weight: 500; }
+
+    /* ── PHONE STRIP ── */
+    .mockup-strip {
+      padding: 80px 0;
+      background: var(--surface2);
+      overflow: hidden;
+      position: relative;
+    }
+    .mockup-strip::before, .mockup-strip::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+    }
+    .mockup-strip::before { left: 0; background: linear-gradient(to right, var(--surface2), transparent); }
+    .mockup-strip::after  { right: 0; background: linear-gradient(to left, var(--surface2), transparent); }
+    .mockup-track {
+      display: flex; gap: 20px; width: max-content;
+      animation: scroll-phones 36s linear infinite;
+    }
+    .mockup-track:hover { animation-play-state: paused; }
+    @keyframes scroll-phones {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .phone {
+      width: 210px; flex-shrink: 0;
+      background: var(--surface);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(31,111,92,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .phone:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(31,111,92,0.15); }
+    .phone-screen { padding: 20px 16px; min-height: 360px; display: flex; flex-direction: column; gap: 9px; }
+    .phone-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--green); margin-bottom: 2px; }
+    .phone-title { font-size: 0.88rem; font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+    .phone-row {
+      background: var(--surface2);
+      border-radius: 10px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+    }
+    .phone-row-title { font-size: 0.78rem; font-weight: 700; color: var(--text); }
+    .phone-row-sub   { font-size: 0.62rem; color: var(--muted); margin-top: 2px; }
+    .phone-deadline  { font-size: 0.62rem; color: var(--urgent); font-weight: 700; margin-top: 3px; }
+    .phone-chip {
+      display: inline-block; border-radius: 100px; padding: 3px 10px;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.3px;
+    }
+    .chip-green  { background: var(--green-bg);   color: var(--green);  border: 1px solid rgba(31,111,92,0.2); }
+    .chip-urgent { background: var(--urgent-bg);  color: var(--urgent); border: 1px solid rgba(205,92,92,0.2); }
+    .chip-gold   { background: var(--gold-bg);    color: var(--gold);   border: 1px solid rgba(201,155,48,0.2); }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+    }
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
+      color: var(--text); max-width: 700px;
+    }
+    h2 em { font-style: normal; color: var(--green); }
+
+    /* ── PROBLEM ── */
+    .problem-grid {
+      margin-top: 56px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+    }
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .problem-card:hover { box-shadow: 0 4px 24px rgba(31,111,92,0.08); transform: translateY(-2px); }
+    .problem-icon { font-size: 2rem; margin-bottom: 14px; }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .problem-card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── FEATURE BLOCKS ── */
+    .features-section { padding: 60px 24px 100px; max-width: 1100px; margin: 0 auto; }
+    .feature-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center; margin-bottom: 100px;
+    }
+    .feature-block.flip { direction: rtl; }
+    .feature-block.flip > * { direction: ltr; }
+    .feature-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .feature-block h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; color: var(--text); line-height: 1.2; }
+    .feature-block p  { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+    .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .feature-tag {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 0.8rem; color: var(--text); font-weight: 500;
+    }
+
+    /* Feature visual card */
+    .feature-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px 28px;
+      min-height: 340px;
+      display: flex; flex-direction: column; gap: 12px;
+      box-shadow: 0 4px 32px rgba(31,111,92,0.08);
+    }
+    .fv-label  { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--soft); }
+    .fv-title  { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+    .fv-badge  {
+      display: inline-block; border-radius: 100px; padding: 4px 12px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 4px;
+    }
+    .fvb-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid rgba(31,111,92,0.2); }
+    .fvb-urgent { background: var(--urgent-bg); color: var(--urgent); border: 1px solid rgba(205,92,92,0.2); }
+    .fvb-gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid rgba(201,155,48,0.2); }
+
+    .fv-row {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 16px;
+    }
+    .fv-row-title  { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .fv-row-sub    { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+    .fv-row-urgent { font-size: 0.72rem; color: var(--urgent); font-weight: 700; margin-top: 3px; }
+    .fv-divider    { border: none; border-top: 1px solid var(--border); }
+
+    /* ── ALL FEATURES GRID ── */
+    .all-features { padding: 80px 24px; background: var(--surface2); }
+    .all-features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-grid {
+      margin-top: 48px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;
+    }
+    .feat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feat-card:hover { box-shadow: 0 4px 24px rgba(31,111,92,0.1); transform: translateY(-3px); }
+    .feat-icon { font-size: 2rem; margin-bottom: 14px; }
+    .feat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .feat-card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .feat-pro {
+      display: inline-block; margin-top: 10px;
+      background: var(--gold-bg); border: 1px solid rgba(201,155,48,0.3);
+      border-radius: 100px; padding: 3px 10px;
+      font-size: 0.7rem; font-weight: 700; color: var(--gold);
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      text-align: center;
+    }
+    .quote-mark { font-size: 4rem; color: rgba(255,255,255,0.2); line-height: 1; margin-bottom: -8px; }
+    .quote-text {
+      font-size: clamp(1.2rem, 3vw, 1.75rem); font-weight: 700;
+      max-width: 680px; margin: 0 auto; letter-spacing: -0.5px; line-height: 1.45;
+      color: #fff;
+    }
+    .quote-text em { font-style: normal; color: rgba(255,255,255,0.65); }
+    .quote-sub { margin-top: 16px; color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 120px 24px; text-align: center;
+      background: var(--bg);
+    }
+    .cta-app-icon {
+      width: 92px; height: 92px; border-radius: 22px;
+      margin: 0 auto 28px; display: block;
+      box-shadow: 0 8px 32px rgba(31,111,92,0.25);
+    }
+    .cta-section h2 { max-width: 560px; margin: 0 auto 14px; }
+    .cta-section p { color: var(--muted); max-width: 440px; margin: 0 auto 40px; font-size: 1rem; line-height: 1.7; }
+    .store-badges { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .store-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 16px; padding: 16px 28px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(31,111,92,0.3);
+    }
+    .store-badge:hover { opacity: 0.88; transform: translateY(-2px); }
+    .store-badge-icon { font-size: 1.8rem; }
+    .store-badge-text { text-align: left; }
+    .store-badge-text small { display: block; font-size: 0.68rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.5px; }
+    .store-badge-text strong { display: block; font-size: 1rem; font-weight: 700; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 24px; text-align: center;
+      border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem;
+      background: var(--surface2);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .feature-block { grid-template-columns: 1fr; gap: 32px; }
+      .feature-block.flip { direction: ltr; }
+      h2 { max-width: 100%; }
+      .hero-stats { gap: 32px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── IAB BANNER ── */
+    #iab-banner {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      align-items: flex-end; justify-content: center; padding: 24px;
+    }
+    #iab-banner.show { display: flex; }
+    .iab-card {
+      background: #fff; border-radius: 24px; padding: 28px 24px 24px;
+      max-width: 380px; width: 100%;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+      position: relative;
+      animation: slide-up 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes slide-up {
+      from { transform: translateY(40px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .iab-arrow { position: absolute; top: -52px; right: 12px; font-size: 2.2rem; animation: bounce-arrow 1s ease-in-out infinite; }
+    @keyframes bounce-arrow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .iab-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .iab-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .iab-card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .iab-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .iab-step { display: flex; align-items: center; gap: 12px; background: var(--surface2); border-radius: 12px; padding: 12px 14px; }
+    .iab-step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: #fff; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .iab-step-text { font-size: 0.85rem; color: var(--text); font-weight: 500; line-height: 1.4; }
+    .iab-step-text strong { font-weight: 700; }
+    .iab-dismiss { width: 100%; padding: 13px; background: transparent; border: 1.5px solid var(--border); border-radius: 12px; font-size: 0.875rem; font-weight: 600; color: var(--muted); cursor: pointer; }
+    .iab-dismiss:hover { background: var(--surface2); }
+  </style>
+</head>
+<body>
+
+<!-- IAB BANNER -->
+<div id="iab-banner">
+  <div class="iab-card">
+    <div class="iab-arrow">☝️</div>
+    <div class="iab-icon">📱</div>
+    <h3>Open in your browser to download</h3>
+    <p>Instagram's built-in browser can't open the App Store. Tap the menu to switch to Safari — it only takes a second.</p>
+    <div class="iab-steps">
+      <div class="iab-step"><div class="iab-step-num">1</div><div class="iab-step-text">Tap the <strong>⋯ three dots</strong> in the top-right corner</div></div>
+      <div class="iab-step"><div class="iab-step-num">2</div><div class="iab-step-text">Select <strong>"Open in external browser"</strong></div></div>
+      <div class="iab-step"><div class="iab-step-num">3</div><div class="iab-step-text">Tap <strong>Download Free</strong> to get Malaysia Pocket</div></div>
+    </div>
+    <button class="iab-dismiss" onclick="document.getElementById('iab-banner').classList.remove('show')">Got it, I'll do it later</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="app-icon.png" alt="Malaysia Pocket app icon" />
+    <span>Malaysia Pocket</span>
+  </a>
+  <a class="nav-cta" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">Download Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🇲🇾 For Every Malaysian</div>
+  <h1>Know your rights.<br><em>Beat the clock.</em></h1>
+  <p class="hero-sub">
+    Emergency numbers, legal deadlines, step-by-step guides, and a complaint letter you can send today — in plain language, not legalese.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      App Store — Free
+    </a>
+    <a class="btn-secondary" href="#features">See what's inside ↓</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Situations Covered</div></div>
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Step-by-Step Guides</div></div>
+    <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Rights Topics</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Languages</div></div>
+  </div>
+</section>
+
+<!-- PHONE STRIP -->
+<div class="mockup-strip">
+  <div class="mockup-track">
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Emergency</div>
+      <div class="phone-title">Get help now</div>
+      <div class="phone-row"><div class="phone-row-title">📞  999 — Police</div><div class="phone-row-sub">Call immediately</div></div>
+      <div class="phone-row"><div class="phone-row-title">📞  994 — Fire &amp; Rescue</div></div>
+      <div class="phone-row"><div class="phone-row-title">📞  03-2693 5400 — Hospital KL</div></div>
+      <div class="phone-chip chip-urgent">Tap to call</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Situations</div>
+      <div class="phone-title">What happened?</div>
+      <div class="phone-row">
+        <div class="phone-row-title">Employer didn't pay me</div>
+        <div class="phone-deadline">⏱  14 days from last pay date</div>
+      </div>
+      <div class="phone-row">
+        <div class="phone-row-title">Landlord kept my deposit</div>
+        <div class="phone-deadline">⏱  3 years from dispute</div>
+      </div>
+      <div class="phone-chip chip-urgent">Clock is running</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Case Tracker</div>
+      <div class="phone-title">Never miss a deadline</div>
+      <div class="phone-row">
+        <div class="phone-row-title">Unfair dismissal</div>
+        <div class="phone-row-sub">Clock started: 1 August 2026</div>
+        <div class="phone-deadline">47 days left · reminder set</div>
+      </div>
+      <div class="phone-chip chip-green">🔔 Reminder active</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Know Your Rights</div>
+      <div class="phone-title">Police stops you</div>
+      <div class="phone-row"><div class="phone-row-title">You have the right to remain silent</div></div>
+      <div class="phone-row"><div class="phone-row-title">You must show IC if asked</div></div>
+      <div class="phone-row"><div class="phone-row-title">You can ask why you're detained</div></div>
+      <div class="phone-chip chip-green">CPC s.28A</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Guides</div>
+      <div class="phone-title">File a police report</div>
+      <div class="phone-row"><div class="phone-row-title">Step 1 of 6</div><div class="phone-row-sub">Go to nearest Balai Polis</div></div>
+      <div class="phone-row"><div class="phone-row-title">Step 2 of 6</div><div class="phone-row-sub">Bring your IC and evidence</div></div>
+      <div class="phone-chip chip-green">Progress tracked</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Pro Feature</div>
+      <div class="phone-title">Complaint letter</div>
+      <div class="phone-row"><div class="phone-row-title">Kepada Yang Berhormat,</div><div class="phone-row-sub">Auto-filled in BM from your details</div></div>
+      <div class="phone-row"><div class="phone-row-title">Ready to share or email</div></div>
+      <div class="phone-chip chip-gold">👑 Pocket Pro</div>
+    </div></div>
+
+    <!-- Duplicates for seamless loop -->
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Emergency</div>
+      <div class="phone-title">Get help now</div>
+      <div class="phone-row"><div class="phone-row-title">📞  999 — Police</div></div>
+      <div class="phone-row"><div class="phone-row-title">📞  994 — Fire &amp; Rescue</div></div>
+      <div class="phone-chip chip-urgent">Tap to call</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Situations</div>
+      <div class="phone-title">What happened?</div>
+      <div class="phone-row">
+        <div class="phone-row-title">Employer didn't pay me</div>
+        <div class="phone-deadline">⏱  14 days from last pay date</div>
+      </div>
+      <div class="phone-chip chip-urgent">Clock is running</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Case Tracker</div>
+      <div class="phone-title">Never miss a deadline</div>
+      <div class="phone-row">
+        <div class="phone-row-title">Unfair dismissal</div>
+        <div class="phone-deadline">47 days left · reminder set</div>
+      </div>
+      <div class="phone-chip chip-green">🔔 Reminder active</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Know Your Rights</div>
+      <div class="phone-title">Police stops you</div>
+      <div class="phone-row"><div class="phone-row-title">You have the right to remain silent</div></div>
+      <div class="phone-chip chip-green">CPC s.28A</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Guides</div>
+      <div class="phone-title">File a police report</div>
+      <div class="phone-row"><div class="phone-row-title">Step 1 of 6 — Go to Balai Polis</div></div>
+      <div class="phone-chip chip-green">Progress tracked</div>
+    </div></div>
+
+    <div class="phone"><div class="phone-screen">
+      <div class="phone-label">Pro Feature</div>
+      <div class="phone-title">Complaint letter</div>
+      <div class="phone-row"><div class="phone-row-title">Auto-filled in BM from your details</div></div>
+      <div class="phone-chip chip-gold">👑 Pocket Pro</div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section fade-up">
+  <div class="section-eyebrow">The problem</div>
+  <h2>Most Malaysians don't know their rights <em>until it's too late.</em></h2>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">⏱</div>
+      <h3>Deadlines you didn't know were running</h3>
+      <p>An unfair dismissal claim expires in 60 days. A wage claim in 14. A consumer tribunal case in 3 years. Most people find out the clock was running after it has stopped.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🤷</div>
+      <h3>Googling at 2am gets you nothing useful</h3>
+      <p>Legal sites are written for lawyers. Forum posts are outdated. PDF circulars are 47 pages long. You needed a plain-language answer, not a research project.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📋</div>
+      <h3>Knowing your rights isn't enough</h3>
+      <p>"I know I have rights" doesn't help when you don't know which agency to call, what form to fill, or what evidence to gather before you file. Malaysia Pocket closes that gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+
+  <!-- Situations -->
+  <div class="feature-block fade-up">
+    <div>
+      <div class="feature-eyebrow">Situations</div>
+      <h3>Start with what happened, not which law it falls under</h3>
+      <p>Nobody knows whether their landlord dispute is a civil or consumer matter. They know what happened. Malaysia Pocket is organised by situation — plain-language descriptions, not legal categories.</p>
+      <p>Every situation shows the exact deadline, what to do first, what evidence to gather, and which agency handles it.</p>
+      <div class="feature-tags">
+        <span class="feature-tag">⏱ Exact deadlines</span>
+        <span class="feature-tag">📋 Evidence checklist</span>
+        <span class="feature-tag">📞 Who to call</span>
+        <span class="feature-tag">⚖️ 30+ situations</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="fv-label">Something happened</div>
+      <div class="fv-title">My employer hasn't paid me</div>
+      <div class="fv-badge fvb-urgent">⏱  14 days from last day of employment</div>
+      <div class="fv-row">
+        <div class="fv-row-title">Do this first</div>
+        <div class="fv-row-sub">Send a written demand to your employer. Keep a copy. If no response in 3 days, file with the Labour Department (JTK).</div>
+      </div>
+      <div class="fv-row">
+        <div class="fv-row-title">Gather before you file</div>
+        <div class="fv-row-sub">✓ Payslips  ✓ Bank statements  ✓ Employment contract  ✓ WhatsApp receipts</div>
+      </div>
+      <div class="fv-row">
+        <div class="fv-row-title">Where to send it</div>
+        <div class="fv-row-sub">Jabatan Tenaga Kerja (JTK) — call 1300-88-8735</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Tracking -->
+  <div class="feature-block flip fade-up">
+    <div>
+      <div class="feature-eyebrow">Case Tracker</div>
+      <h3>A running countdown you can't accidentally ignore</h3>
+      <p>Once you start tracking a case, Malaysia Pocket sets local notifications at 30 days, 7 days, 1 day, and on the deadline itself. No account, no cloud sync — everything stays on your device.</p>
+      <p>You can add notes, log reference numbers, and attach photos of evidence. Mark it resolved when it's done.</p>
+      <div class="feature-tags">
+        <span class="feature-tag">🔔 Deadline reminders</span>
+        <span class="feature-tag">📝 Evidence photos</span>
+        <span class="feature-tag">📂 Case notes</span>
+        <span class="feature-tag">🔒 On-device only</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="fv-label">Your cases</div>
+      <div class="fv-title">Unfair dismissal — 47 days left</div>
+      <div class="fv-badge fvb-urgent">Deadline: 19 September 2026</div>
+      <div class="fv-row">
+        <div class="fv-row-title">Clock started</div>
+        <div class="fv-row-sub">1 August 2026 — date of termination</div>
+      </div>
+      <div class="fv-row">
+        <div class="fv-row-title">Notes</div>
+        <div class="fv-row-sub">Received termination letter. Filed grievance internally on 3 Aug. HR yet to respond.</div>
+      </div>
+      <div class="fv-badge fvb-green">🔔 Reminder set: 12 September 2026</div>
+    </div>
+  </div>
+
+  <!-- Rights -->
+  <div class="feature-block fade-up">
+    <div>
+      <div class="feature-eyebrow">Know Your Rights</div>
+      <h3>What you can and cannot be made to do — in plain language</h3>
+      <p>From police stops to EPF disputes, landlord entries to consumer scams — Malaysia Pocket covers 50+ rights topics, each citing the actual law so you know it's not just opinion.</p>
+      <p>Rights are shown alongside who to complain to if they're violated. The law, the agency, and the phone number in one screen.</p>
+      <div class="feature-tags">
+        <span class="feature-tag">🛡 Police &amp; detention</span>
+        <span class="feature-tag">💼 Employment</span>
+        <span class="feature-tag">🏠 Tenancy</span>
+        <span class="feature-tag">🛒 Consumer</span>
+        <span class="feature-tag">🏦 Banking &amp; debt</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="fv-label">Police stops you</div>
+      <div class="fv-title">Your rights at a roadblock</div>
+      <hr class="fv-divider" />
+      <div class="fv-row">
+        <div class="fv-row-title">You must show your IC if asked</div>
+        <div class="fv-row-sub">Registration of Businesses Act 1956; National Registration Regulations 1990</div>
+      </div>
+      <div class="fv-row">
+        <div class="fv-row-title">You have the right to remain silent</div>
+        <div class="fv-row-sub">CPC s.28A — you cannot be compelled to answer questions beyond basic identification</div>
+      </div>
+      <div class="fv-row">
+        <div class="fv-row-title">Where to complain</div>
+        <div class="fv-row-sub">Tribunal Aduan Polis — 03-2722 7222</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guides + Complaint Letter -->
+  <div class="feature-block flip fade-up">
+    <div>
+      <div class="feature-eyebrow">Guides &amp; Pro</div>
+      <h3>Step-by-step from start to finish, including the letter</h3>
+      <p>12 guides walk you through the full procedure — what to prepare, where to go, what to say, and what to do if they push back. No loose ends.</p>
+      <p>Pocket Pro adds an auto-generated complaint letter in Bahasa Malaysia and English. Fill in your name and what happened — the app structures the rest.</p>
+      <div class="feature-tags">
+        <span class="feature-tag">📋 12 guides</span>
+        <span class="feature-tag">📝 Complaint letter (BM &amp; EN)</span>
+        <span class="feature-tag">📤 Share or email directly</span>
+        <span class="feature-tag">🔍 Global search</span>
+        <span class="feature-tag">🔖 Bookmarks</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="fv-label">Pocket Pro</div>
+      <div class="fv-title">Auto-generated complaint letter</div>
+      <div class="fv-badge fvb-gold">👑 Pocket Pro feature</div>
+      <div class="fv-row" style="font-family:monospace;font-size:0.8rem;line-height:1.6;color:#3a4a44;">
+        Kepada Yang Berhormat,<br>
+        Pengarah, Jabatan Buruh<br><br>
+        Saya, <strong>Ahmad bin Abdullah</strong> (IC: 880101-01-1234),
+        ingin membuat aduan berkenaan gaji tidak dibayar
+        bagi bulan Mei–Julai 2026 (RM 4,500).
+      </div>
+      <div class="fv-badge fvb-green">Share or email directly from the app</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ALL FEATURES GRID -->
+<div class="all-features fade-up">
+  <div class="all-features-inner">
+    <div class="section-eyebrow">Everything inside Malaysia Pocket</div>
+    <h2>Built for the moment you actually <em>need it</em></h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h3>30+ Situations</h3>
+        <p>Police confrontation, landlord disputes, unfair dismissal, LHDN assessment, bankruptcy notice, medical negligence — each with deadlines, steps, and the right agency.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🛡</div>
+        <h3>50+ Rights Topics</h3>
+        <p>Police stops, employment rights, tenant rights, consumer protection, banking disputes, school discipline — all citing the actual Malaysian law they're based on.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>Step-by-Step Guides</h3>
+        <p>12 procedures from start to finish. Progress tracking lets you check off steps as you go. File a police report, contest a summons, write a will — complete flows, no gaps.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📅</div>
+        <h3>Deadline Tracker</h3>
+        <p>Track any open case with a running countdown and reminders at 30/7/1 days. Attach evidence photos and notes. Everything stays on-device — nothing uploaded anywhere.</p>
+        <span class="feat-pro">👑 Pocket Pro</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📝</div>
+        <h3>Complaint Letter Generator</h3>
+        <p>Fill in your name and what happened. The app generates a structured letter in Bahasa Malaysia and English, ready to copy or email. No blank-page anxiety.</p>
+        <span class="feat-pro">👑 Pocket Pro</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔍</div>
+        <h3>Global Search</h3>
+        <p>One search across every situation, rights topic, guide, and complaint channel at once. Never guess which section has the answer — it surfaces everything at once.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔖</div>
+        <h3>Bookmarks</h3>
+        <p>Save any situation or guide with one tap. Your saved items resolve against the live content, so updates to the law are reflected in what you saved automatically.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🌐</div>
+        <h3>Four Languages</h3>
+        <p>English, Bahasa Malaysia, 中文, and தமிழ். Switch at any time in Settings. The app content — including rights citations and situation guidance — fully follows the selected language.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📅</div>
+        <h3>Holidays &amp; School Calendar</h3>
+        <p>Public holidays and school term dates by state, updated annually. Night markets by area, shopping mall parking rates, LRT/MRT station mall connections.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section fade-up">
+  <div class="quote-mark">"</div>
+  <div class="quote-text">
+    The deadline was already running<br>
+    before they knew there <em>was a deadline.</em>
+  </div>
+  <div class="quote-sub">— The reason Malaysia Pocket exists</div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section fade-up">
+  <img src="app-icon.png" alt="Malaysia Pocket" class="cta-app-icon" />
+  <h2>Know what to do <em>before</em> time runs out</h2>
+  <p>Free to download. The full situations library, rights guide, holiday calendar, and global search are free. No account required to start.</p>
+  <div class="store-badges">
+    <a class="store-badge" href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">
+      <div class="store-badge-icon">🍎</div>
+      <div class="store-badge-text">
+        <small>Download on the</small>
+        <strong>App Store</strong>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>Malaysia Pocket</strong> — Know Your Rights &nbsp;·&nbsp;
+    <a href="https://apps.apple.com/my/app/malaysia-pocket/id1504421248">App Store</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:kelvin.vins@gmail.com">Contact</a>
+    &nbsp;·&nbsp;
+    Made in Malaysia 🇲🇾
+  </p>
+  <p style="margin-top:8px">© 2026 DaddyCoding. All rights reserved. &nbsp;·&nbsp; Guidance only, not legal advice.</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Instagram / Facebook in-app browser detection
+  (function () {
+    const ua = navigator.userAgent || '';
+    const isIAB = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly/i.test(ua);
+    if (!isIAB) return;
+    document.querySelectorAll('a[href*="apps.apple.com"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('iab-banner').classList.add('show');
+      });
+    });
+    setTimeout(() => { document.getElementById('iab-banner').classList.add('show'); }, 1500);
+  })();
+</script>
+</body>
+</html>
